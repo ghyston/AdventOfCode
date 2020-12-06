@@ -1,0 +1,15 @@
+/Users/hyston/Projects/adventofcode2020/bin/Debug/net5.0/adventofcode2020.deps.json
+/Users/hyston/Projects/adventofcode2020/bin/Debug/net5.0/adventofcode2020.runtimeconfig.json
+/Users/hyston/Projects/adventofcode2020/bin/Debug/net5.0/adventofcode2020.runtimeconfig.dev.json
+/Users/hyston/Projects/adventofcode2020/bin/Debug/net5.0/adventofcode2020.dll
+/Users/hyston/Projects/adventofcode2020/bin/Debug/net5.0/ref/adventofcode2020.dll
+/Users/hyston/Projects/adventofcode2020/bin/Debug/net5.0/adventofcode2020.pdb
+/Users/hyston/Projects/adventofcode2020/obj/Debug/net5.0/adventofcode2020.csprojAssemblyReference.cache
+/Users/hyston/Projects/adventofcode2020/obj/Debug/net5.0/adventofcode2020.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hyston/Projects/adventofcode2020/obj/Debug/net5.0/adventofcode2020.AssemblyInfoInputs.cache
+/Users/hyston/Projects/adventofcode2020/obj/Debug/net5.0/adventofcode2020.AssemblyInfo.cs
+/Users/hyston/Projects/adventofcode2020/obj/Debug/net5.0/adventofcode2020.csproj.CoreCompileInputs.cache
+/Users/hyston/Projects/adventofcode2020/obj/Debug/net5.0/adventofcode2020.dll
+/Users/hyston/Projects/adventofcode2020/obj/Debug/net5.0/ref/adventofcode2020.dll
+/Users/hyston/Projects/adventofcode2020/obj/Debug/net5.0/adventofcode2020.pdb
+/Users/hyston/Projects/adventofcode2020/obj/Debug/net5.0/adventofcode2020.genruntimeconfig.cache

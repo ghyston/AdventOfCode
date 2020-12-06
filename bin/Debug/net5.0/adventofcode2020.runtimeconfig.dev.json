@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/hyston/.dotnet/store/|arch|/|tfm|",
+      "/Users/hyston/.nuget/packages"
+    ]
+  }
+}
