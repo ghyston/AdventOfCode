@@ -7,7 +7,9 @@ using System.Linq;
 //Console.WriteLine($"Day3 part 2: {TreesOnAllSlopesCount()}");
 //Console.WriteLine($"Day4 part 1: {ValidPassports()}");
 //Console.WriteLine($"Day5 part 1: {BoardingPasses.HighestID()}");
-Console.WriteLine($"Day5 part 2: {BoardingPasses.MissingId()}");
+//Console.WriteLine($"Day5 part 2: {BoardingPasses.MissingId()}");
+//Console.WriteLine($"Day6 part 1: {Questions.GetUniqueSum()}");
+Console.WriteLine($"Day6 part 2: {Questions.GetEveryoneSum()}");
 //BoardingPasses.Tests();
 
 static int SumTo2020()
