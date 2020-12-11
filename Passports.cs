@@ -95,6 +95,9 @@ public class Passport
         
 }
 
+//(eyr|byr|hgt|pid|cid):(#?[0-9a-z]+)
+//$1 = "$2",
+
 public class Passports
 {
     public static List<Passport> Values = new List<Passport> {

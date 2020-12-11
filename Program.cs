@@ -11,7 +11,9 @@ using System.Linq;
 //Console.WriteLine($"Day6 part 1: {Questions.GetUniqueSum()}");
 //Console.WriteLine($"Day6 part 2: {Questions.GetEveryoneSum()}");
 //Console.WriteLine($"Day7 part 1: {Day7.CanContainShinyBagCount()}");
-Console.WriteLine($"Day7 part 2: {Day7.ShinyBagCanContain()}");
+//Console.WriteLine($"Day7 part 2: {Day7.ShinyBagCanContain()}");
+//Console.WriteLine($"Day8 part 1: {Day8.ValueBeforeInf()}");
+Console.WriteLine($"Day8 part 2: {Day8.BruteforceResult()}");
 
 
 static int SumTo2020()
