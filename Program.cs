@@ -13,7 +13,9 @@ using System.Linq;
 //Console.WriteLine($"Day7 part 1: {Day7.CanContainShinyBagCount()}");
 //Console.WriteLine($"Day7 part 2: {Day7.ShinyBagCanContain()}");
 //Console.WriteLine($"Day8 part 1: {Day8.ValueBeforeInf()}");
-Console.WriteLine($"Day8 part 2: {Day8.BruteforceResult()}");
+//Console.WriteLine($"Day8 part 2: {Day8.BruteforceResult()}");
+//Console.WriteLine($"Day9 part 1: {Day9.FindIncorrect()}");
+Console.WriteLine($"Day9 part 1: {Day9.FindIncorrectSum()}");
 
 
 static int SumTo2020()
