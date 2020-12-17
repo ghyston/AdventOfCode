@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class Questions
+public class Day6
 {
     static public int GetAnyoneSum()
         => Values.Select(v => GetAnyoneCount(v)).Sum();

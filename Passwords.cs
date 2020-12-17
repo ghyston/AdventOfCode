@@ -9,9 +9,31 @@ public class Pass
 
 }
 
-public class Passwords
+public class Day2
 {
-    public static List<Pass> values = new List<Pass> { 
+    public static int RightPasswordsCount()
+    {
+        var correct = 0;
+        foreach (var pass in Values)
+        {
+            //Console.WriteLine($"pass: {pass.Value} min: {pass.Min} max: {pass.Max} symb: {pass.Symbol}");
+            var minChr = pass.Value[pass.Min-1];
+            var maxChr = pass.Value[pass.Max-1];
+            //Console.WriteLine($"maxChr: {minChr} maxChr: {maxChr}");
+            
+            var minIsRight = /*pass.Value.Count() > pass.Min && */pass.Value[pass.Min-1] == pass.Symbol;
+            var maxIsRight = /*pass.Value.Count() > pass.Max && */pass.Value[pass.Max-1] == pass.Symbol;
+            if(minIsRight ^ maxIsRight)
+                correct++;
+            /*var count = pass.Value.Count(p => p == pass.Symbol);
+            if (count >= pass.Min && count <= pass.Max)
+                correct++;*/
+            
+        }
+        return correct;
+    }
+
+    public static List<Pass> Values = new List<Pass> { 
         new Pass { Min = 1, Max = 2, Symbol = 'x', Value = "xpxc" },
         new Pass { Min = 1, Max = 5, Symbol = 'b', Value = "bwlbbbbcq" },
         new Pass { Min = 3, Max = 5, Symbol = 'v', Value = "qvjjdhvl" },

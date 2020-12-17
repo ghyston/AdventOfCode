@@ -1,6 +1,7 @@
+using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
 public class HightValidatorAttribute : ValidationAttribute
@@ -98,8 +99,12 @@ public class Passport
 //(eyr|byr|hgt|pid|cid):(#?[0-9a-z]+)
 //$1 = "$2",
 
-public class Passports
+public class Day4
 {
+
+    public static int ValidPassports()
+        => Values.Count(p => p.IsValid());
+
     public static List<Passport> Values = new List<Passport> {
 
 new Passport {hcl = "#6b5442", ecl = "brn", iyr = 2019,

@@ -1,5 +1,22 @@
-public class Input
+public class Day1
 {
+    public static int SumTo2020()
+    {
+        for (int i1 = 0; i1 < Values.Length; i1++)
+            for (int i2 = 0; i2 < Values.Length; i2++)
+                for (int i3 = 0; i3 < Values.Length; i3++)
+                {
+                    var f = Values[i1];
+                    var s = Values[i2];
+                    var t = Values[i3];
+                    //Console.WriteLine($"Sum {f} and {s}: {f + s}");
+                    if(f + s + t== 2020)
+                        return f * s * t;
+                }
+        return 0;
+    }
+
+
     public static int[] Values = new int[] {
 1834,
 1546,

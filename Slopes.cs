@@ -1,8 +1,28 @@
 using System.Linq;
 using System.Collections.Generic;
 
-public class Slopes
+public class Day3
 {
+    public static int TreesOnAllSlopesCount() => 
+        TreesOnSlopeCount(1, 1) *
+        TreesOnSlopeCount(3, 1) *
+        TreesOnSlopeCount(5, 1) *
+        TreesOnSlopeCount(7, 1) *
+        TreesOnSlopeCount(1, 2);
+
+    public static int TreesOnSlopeCount(int right, int down)
+    {
+        var trees = 0;
+        var width = Values.First().Count();
+
+        for (int y = down, x = right; y < Values.Count(); y += down, x += right)
+        {
+            if (x >= width) x -= width;
+            if (Values[y][x] == '#') trees++;        
+        }
+        return trees;
+    }
+
     static public List<string> Values = new List<string> {
 ".........#.#.#.........#.#.....",
 "...#......#...#.....#.....#....",

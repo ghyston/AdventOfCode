@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-public class BoardingPasses
+public class Day5
 {
     static int rowsCount = 128;
     static char front = 'F';
