@@ -15,7 +15,9 @@ using System.Linq;
 //Console.WriteLine($"Day8 part 1: {Day8.ValueBeforeInf()}");
 //Console.WriteLine($"Day8 part 2: {Day8.BruteforceResult()}");
 //Console.WriteLine($"Day9 part 1: {Day9.FindIncorrect()}");
-Console.WriteLine($"Day9 part 1: {Day9.FindIncorrectSum()}");
+//Console.WriteLine($"Day9 part 2: {Day9.FindIncorrectSum()}");
+//Console.WriteLine($"Day10 part 1: {Day10.MultiplyJoints()}");
+Console.WriteLine($"Day10 part 2: {Day10.CalculateAllPossibleJoints()}");
 
 
 static int SumTo2020()
