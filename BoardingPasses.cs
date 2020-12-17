@@ -5,19 +5,20 @@ using System.Collections.Generic;
 public class Day5
 {
     static int rowsCount = 128;
+    static int seatsCount = 8;
     static char front = 'F';
     static char back = 'B';
     static char left = 'L';
     static char right = 'R';
 
     public static int GetRow(string boardingPass)
-        => BinaryCount(boardingPass.Substring(0, 7), front, back, 128);
+        => BinaryCount(boardingPass.Substring(0, 7), front, back, rowsCount);
 
     public static int GetSeat(string boardingPass)
-        => BinaryCount(boardingPass.Substring(7, 3), left, right, 8);
+        => BinaryCount(boardingPass.Substring(7, 3), left, right, seatsCount);
 
     public static int GetID(string boardingPass)
-        => GetRow(boardingPass) * 8 + GetSeat(boardingPass);
+        => GetRow(boardingPass) * seatsCount + GetSeat(boardingPass);
 
     private static int BinaryCount(string input, char firstHalfToken, char secondHalfToken, int count)
     {

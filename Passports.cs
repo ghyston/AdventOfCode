@@ -54,7 +54,7 @@ public class Passport
     [Required, RangeAttribute(1920, 2002)]
     public int? byr { get; set; }
 
-    public string ToString()
+    public override string ToString()
         => @$"hcl: {hcl}
             ecl: {ecl}
             pid: {pid}
