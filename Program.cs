@@ -19,4 +19,6 @@ Console.WriteLine($"No main, no gain");
 //Console.WriteLine($"Day9 part 2: {Day9.FindIncorrectSum()}");
 //Console.WriteLine($"Day10 part 1: {Day10.MultiplyJoints()}");
 //Console.WriteLine($"Day10 part 2: {Day10.CalculateAllPossibleJoints()}");
-Console.WriteLine($"Day11 part 2: {Day11.CalculateIterations()}");
+//Console.WriteLine($"Day11 part 2: {Day11.CalculateIterations()}");
+//Console.WriteLine($"Day12 part 1: {Day12.WhereAreWe()}");
+Console.WriteLine($"Day12 part 2: {Day12.WhereAreWeReally()}");
