@@ -6,26 +6,16 @@ public class Day14
 {
     struct NullableBitMask
     {
-        //bool?[] values;
         ulong zeroMask;
         ulong oneMask;
+        List<int> floatPoints;
 
         public NullableBitMask(string input)
         {
-            // first attempt
-            /*values = new bool?[input.Length];
-            for (int i = 0; i < input.Length; i++)
-            {
-                switch(input[i])
-                {
-                    case '0': values[i] = false; break;
-                    case '1': values[i] = true; break;
-                    default: values[i] = null; break;
-                }
-            }*/
 
             zeroMask = 0;
             oneMask = 0;
+            floatPoints = new();
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -37,12 +27,42 @@ public class Day14
                 {
                     case '0': zeroMask += 1; break;
                     case '1': oneMask += 1; break;
+                    case 'X': floatPoints.Add(input.Length - i - 1); break;
                     default: break;
                 }
             }
         }
 
         public ulong Apply(ulong value) => value & ~zeroMask | oneMask;
+
+        public IEnumerable<ulong> ApplyFloatly(ulong value)
+        {
+            List<ulong> result = new ();
+            value |= oneMask;
+            //Console.WriteLine($"oneMasked val: {value}");
+            
+            for(ulong i = 0; i < Math.Pow(2, floatPoints.Count); i++)
+            {
+                var bitCount = 0;
+                var current = value;
+                foreach (var currentPoint in floatPoints)
+                {
+                    var mask = ((ulong)1 << currentPoint); // 1 should be also ulong, otherwise result is only 32 bit (convertation to ulong happen later)
+                    var bit = i & ((ulong)1 << bitCount);
+                    //Console.WriteLine($"curentPoint: {currentPoint} mask: {mask} to bit {bit}");
+
+                    if(bit == 0)
+                        current &= ~mask; //set to 0
+                    else
+                        current |= mask; //set to 1
+                    bitCount++;
+                }
+                result.Add(current);
+                //Console.WriteLine($"current: {current}");
+            }
+
+            return result;
+        }
 
         public static implicit operator NullableBitMask(string v) => new NullableBitMask(v);
     }
@@ -52,10 +72,23 @@ public class Day14
         private Dictionary<ulong, ulong> mem = new ();
         public NullableBitMask mask;
 
+        public Action<ulong, ulong> Behaviour { get; set; }
+
+        public void Part1(ulong adress, ulong value)
+        {
+            mem[adress] = mask.Apply(value);
+        }
+
+        public void Part2(ulong adress, ulong value)
+        {
+            var addresses = mask.ApplyFloatly(adress);
+            foreach (var floatAdress in addresses)
+                mem[floatAdress] = value; 
+        }
+
         public ulong this[ulong i]
         {
-         //   get { return mem[i]; }
-            set { mem[i] = mask.Apply(value); }
+            set { Behaviour(i, value); }
         }
 
         public void Debug()
@@ -75,19 +108,39 @@ public class Day14
 
     public static ulong Part1()
     {
-        //return TestValues();
+        var mem = new Memory();
+        mem.Behaviour = mem.Part1;
 
-        return RunSequence();
+        //return TestValues();
+        return RunSequence(mem);
     }
 
-    public static ulong TestValues()
+    public static ulong Part2()
     {
         var mem = new Memory();
+        mem.Behaviour = mem.Part2;
 
+        //return TestValues2(mem);
+        return RunSequence(mem);
+    }
+
+    private static ulong TestValues(Memory mem)
+    {
         mem.mask = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X";
         mem[8] = 11;
         mem[7] = 101;
         mem[8] = 0;
+
+        mem.Debug();
+        return mem.MakeSum();
+    }
+
+    private static ulong TestValues2(Memory mem)
+    {
+        mem.mask = "000000000000000000000000000000X1001X";
+        mem[42] = 100;
+        mem.mask = "00000000000000000000000000000000X0XX";
+        mem[26] = 1;
 
         mem.Debug();
         return mem.MakeSum();
@@ -102,14 +155,17 @@ public class Day14
     //^(\s*)mask = 
     //$1mem.mask =
 
-    private static ulong RunSequence()
+    private static ulong RunSequence(Memory mem)
     {
-        var mem = new Memory();
+        //000000000000000000001010100110000110 //43398
+        //001X11X1X010X1X1010XX10X100101011000 //mask
+        //001011010010010101001110100111011110 //result from debugger
 
         mem.mask ="001X11X1X010X1X1010XX10X100101011000";
         mem[43398] = 563312;
         mem[51673] = 263978;
         mem[18028] = 544304215;
+
         mem.mask ="X0100001101XX11100010XX110XX11111000";
         mem[24151] = 2013;
         mem[15368] = 19793;
