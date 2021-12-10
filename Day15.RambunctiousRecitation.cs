@@ -23,4 +23,31 @@ public class Day15
 
         return seq.Last();
     }
+
+    public static int Part2() // Optimized
+    {
+        var seq = new List<int> { 15,5,1,4,7,0 };
+
+        var index = seq.Count;
+        var number = seq.Last();
+        seq.RemoveAt(seq.Count - 1);
+
+        var stat = seq
+            .Select((val, index) => new {val, index})
+            .ToDictionary(i => i.val, i => i.index + 1);
+
+        do
+        {
+            var nextNumber = stat.TryGetValue(number, out int lastIndex) 
+                ? index - lastIndex
+                : 0;
+            
+            stat[number] = index;
+            number = nextNumber;
+            index++;
+            
+        } while (index < 30000000);
+
+        return number;
+    }
 }
