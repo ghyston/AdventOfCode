@@ -29,4 +29,5 @@ Console.WriteLine($"No main, no gain");
 //Console.WriteLine($"Day16 part1: {Day16.Part2()}");
 //Console.WriteLine($"Day18 part1: {Day18.Part1()}");
 //Console.WriteLine($"Day18 part2: {Day18.Part2()}");
-Console.WriteLine($"Day19 part1: {Day19.PartTwo()}");
+//Console.WriteLine($"Day19 part1: {Day19.PartTwo()}");
+Console.WriteLine($"Day20 part1: {Day20.PartOne()}");
