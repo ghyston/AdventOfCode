@@ -78,7 +78,7 @@ public partial class Day20
 
     public static long PartOne()
     {
-        using var lineReader = new StringReader(testInput);
+        using var lineReader = new StringReader(actualInput);
         string line;
 
         Dictionary<int, Tile> tiles = new();
@@ -137,12 +137,26 @@ public partial class Day20
 
         var ordered = Matches.OrderBy(m => m.Key);
 
+        var zeros = ordered.Where(o => o.Value.Count == 0).Count();
         var ones = ordered.Where(o => o.Value.Count == 1).Count();
         var twos = ordered.Where(o => o.Value.Count == 2).Count();
         var moress = ordered.Where(o => o.Value.Count > 2).Count();
         
-        //TODO
-        return 0;
+        
+        var oneMatches = ordered.Where(o => o.Value.Count == 1); // matches, that have a pair (on edge)
+        var flattered = oneMatches.SelectMany(o => o.Value);
+        var tileIds = flattered.Select(o => o.tileId); // We need only tile ids and count
+        var grouped = tileIds.GroupBy(tileId => tileId);  // corner tile have 4 matches: 2 edge sides, both flipped. Edge tiles have only 2, one flipped, one not
+
+        var cornerTiles = grouped
+            .Where(x => x.Count() == 4)
+            .Select(c => c.Key);
+
+        long result = 1;
+        foreach (var tileId in cornerTiles)
+            result *= tileId;
+
+        return result;
     }
 
 }
